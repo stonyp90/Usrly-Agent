@@ -16,6 +16,10 @@
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/actions)
 [![Code Quality](https://img.shields.io/badge/code%20quality-enterprise--grade-success?style=flat-square)](https://github.com/stonyp90/Usrly-Agent)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/graphs/contributors)
+[![GitHub Stars](https://img.shields.io/github/stars/stonyp90/Usrly-Agent?style=flat-square&logo=github)](https://github.com/stonyp90/Usrly-Agent/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/issues)
+[![GitHub PRs](https://img.shields.io/github/issues-pr/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/pulls)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-24.x-green?style=flat-square&logo=node.js)](https://nodejs.org/)
 [![NestJS](https://img.shields.io/badge/NestJS-10-E0234E?style=flat-square&logo=nestjs)](https://nestjs.com/)
@@ -25,7 +29,7 @@
 
 <br />
 
-[Features](#-features) · [Quick Start](#-quick-start) · [Documentation](#-documentation) · [Contributing](#-contributing) · [License](#-license)
+[Features](#-features) · [Quick Start](#-quick-start) · [Documentation](#-documentation) · [Contributing](#-contributing) · [Security](#-security) · [License](#-license)
 
 </div>
 
@@ -483,7 +487,9 @@ If ports are already in use:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our contributing guidelines:
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for detailed instructions.
+
+### Quick Start
 
 1. **Fork the repository**
 2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
@@ -498,8 +504,9 @@ We welcome contributions! Please see our contributing guidelines:
 - Follow the existing code style
 - Write tests for new features
 - Update documentation as needed
-- Use conventional commits
+- Use [conventional commits](https://www.conventionalcommits.org/)
 - Ensure all tests pass before submitting
+- Review our [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing
 
 ---
 
@@ -519,9 +526,24 @@ We welcome contributions! Please see our contributing guidelines:
 
 ## 📚 Documentation
 
-- **[Architecture Documentation](./docs/architecture.md)**: Comprehensive architecture guide (coming soon)
+- **[Architecture Guide](./agents.md)**: Comprehensive architecture and development guide
+- **[Contributing Guide](./CONTRIBUTING.md)**: How to contribute to Ursly Agent
+- **[Code of Conduct](./CODE_OF_CONDUCT.md)**: Community guidelines
+- **[Security Policy](./SECURITY.md)**: How to report security vulnerabilities
+- **[Changelog](./CHANGELOG.md)**: Version history and release notes
 - **[API Documentation](http://localhost:3000/api/docs)**: OpenAPI/Swagger docs
 - **[Keycloak Setup](./keycloak/realms/README.md)**: Keycloak realm configuration
+
+---
+
+## 🔒 Security
+
+We take security seriously. Please review our [Security Policy](./SECURITY.md) before reporting vulnerabilities.
+
+**⚠️ Important**: Do not report security vulnerabilities through public GitHub issues. Instead, please use:
+
+- **Email**: [security@ursly.io](mailto:security@ursly.io)
+- **GitHub Security Advisory**: [Report via Security tab](https://github.com/stonyp90/Usrly-Agent/security/advisories/new)
 
 ---
 
@@ -551,6 +573,13 @@ See [LICENSE](./LICENSE) for details.
 - **GitHub**: [github.com/stonyp90/Usrly-Agent](https://github.com/stonyp90/Usrly-Agent)
 - **Issues**: [Report a bug](https://github.com/stonyp90/Usrly-Agent/issues/new)
 - **Discussions**: [GitHub Discussions](https://github.com/stonyp90/Usrly-Agent/discussions)
+- **Security**: [Report a vulnerability](./SECURITY.md)
+
+### Community
+
+- **Contributing**: See our [Contributing Guide](./CONTRIBUTING.md)
+- **Code of Conduct**: Review our [Code of Conduct](./CODE_OF_CONDUCT.md)
+- **Changelog**: Check [CHANGELOG.md](./CHANGELOG.md) for latest updates
 
 ---
 

@@ -438,12 +438,14 @@ npm run start:web
 
 ## Contributing
 
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for detailed instructions.
+
 ### Code Style
 
 - **TypeScript**: Follow ESLint rules, use Prettier
 - **NestJS**: Follow NestJS style guide
 - **React**: Follow React best practices
-- **Commits**: Use conventional commits (`feat:`, `fix:`, `docs:`, etc.)
+- **Commits**: Use [conventional commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, etc.)
 
 ### Pull Request Process
 
@@ -454,6 +456,12 @@ npm run start:web
 5. Commit your changes (`git commit -m 'feat: add amazing feature'`)
 6. Push to the branch (`git push origin feature/amazing-feature`)
 7. Open a Pull Request
+
+### Community Guidelines
+
+- Review our [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing
+- Follow our [Security Policy](./SECURITY.md) when reporting vulnerabilities
+- Check [CHANGELOG.md](./CHANGELOG.md) for version history
 
 ---
 
@@ -468,6 +476,11 @@ npm run start:web
 - **Website**: [ursly.io](https://ursly.io)
 - **GitHub**: [github.com/stonyp90/Usrly-Agent](https://github.com/stonyp90/Usrly-Agent)
 - **Issues**: [Report a bug](https://github.com/stonyp90/Usrly-Agent/issues/new)
+- **Discussions**: [GitHub Discussions](https://github.com/stonyp90/Usrly-Agent/discussions)
+- **Security**: [Report a vulnerability](./SECURITY.md)
+- **Contributing**: [Contributing Guide](./CONTRIBUTING.md)
+- **Code of Conduct**: [Community Guidelines](./CODE_OF_CONDUCT.md)
+- **Changelog**: [Version History](./CHANGELOG.md)
 - **Releases**: [Download latest](https://github.com/stonyp90/Usrly-Agent/releases/latest)
 
 ---
