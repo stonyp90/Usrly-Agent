@@ -1,7 +1,35 @@
 {
   "name": "ursly-agent",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "AGPL-3.0",
+  "description": "Ursly Agent - AI Agent Orchestration Platform. Build, deploy, and manage AI agents with enterprise-grade architecture.",
+  "keywords": [
+    "ai-agents",
+    "llm",
+    "orchestration",
+    "ollama",
+    "nestjs",
+    "react",
+    "keycloak",
+    "mongodb",
+    "grpc",
+    "websockets",
+    "enterprise",
+    "clean-architecture",
+    "ddd"
+  ],
+  "author": {
+    "name": "Anthony Paquet",
+    "url": "https://www.linkedin.com/in/anthony-paquet-94a31085/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stonyp90/Usrly-Agent.git"
+  },
+  "homepage": "https://ursly.io",
+  "bugs": {
+    "url": "https://github.com/stonyp90/Usrly-Agent/issues"
+  },
   "scripts": {
     "dev": "concurrently -n api,web -c cyan,magenta \"npm run start:api\" \"npm run start:web\"",
     "dev:all": "concurrently -n api,grpc,web -c cyan,yellow,magenta \"npm run start:api\" \"npm run start:grpc\" \"npm run start:web\"",

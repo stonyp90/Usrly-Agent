@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="apps/web/public/logo.svg" alt="Ursly Agent Logo" width="80" height="80" style="max-width: 100%; height: auto;" />
+
 # Ursly Agent
 
 ### AI Agent Orchestration Platform
@@ -8,8 +10,11 @@
 
 ✅ **Enterprise-Ready**: Production-tested with comprehensive security, monitoring, and scalability features.
 
+<br />
+
 [![CI](https://github.com/stonyp90/Usrly-Agent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/stonyp90/Usrly-Agent/actions/workflows/ci.yml)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/actions)
+[![Code Quality](https://img.shields.io/badge/code%20quality-enterprise--grade-success?style=flat-square)](https://github.com/stonyp90/Usrly-Agent)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-24.x-green?style=flat-square&logo=node.js)](https://nodejs.org/)
@@ -18,13 +23,15 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248?style=flat-square&logo=mongodb)](https://www.mongodb.com/)
 [![Keycloak](https://img.shields.io/badge/Keycloak-23.0-blue?style=flat-square)](https://www.keycloak.org/)
 
-[Features](#features) • [Quick Start](#quick-start) • [Documentation](#documentation) • [Contributing](#contributing) • [License](#license)
+<br />
+
+[Features](#-features) · [Quick Start](#-quick-start) · [Documentation](#-documentation) · [Contributing](#-contributing) · [License](#-license)
 
 </div>
 
 ---
 
-## Overview
+## 🎯 Overview
 
 **Ursly Agent** is a production-ready AI agent orchestration platform built with clean architecture principles. It enables organizations to build, deploy, and manage AI agents at scale with enterprise-grade security, real-time communication, and comprehensive monitoring.
 
@@ -40,45 +47,81 @@
 
 ---
 
-## Features
+## ✨ Features
 
 ### Core Capabilities
 
-- **Agent Management**: Create, configure, and manage AI agents with custom prompts and models
-- **Task Orchestration**: Execute complex multi-step tasks with dependency management
-- **Real-Time Communication**: WebSocket-based updates for agent status, task progress, and events
-- **Model Integration**: Support for Ollama, OpenAI-compatible APIs, and custom model providers
+#### 🤖 Agent Management
+
+- **Create & Configure**: Build AI agents with custom prompts and models
+- **Multi-Model Support**: Ollama, OpenAI-compatible APIs, and custom providers
 - **Context Management**: Automatic context window management with rotation and summarization
-- **Audit & Compliance**: Comprehensive audit logging for all agent actions and system events
+- **Agent Lifecycle**: Start, stop, suspend, and monitor agent status
+
+#### 📋 Task Orchestration
+
+- **Complex Workflows**: Execute multi-step tasks with dependency management
+- **Task Scheduling**: Schedule tasks for future execution
+- **Progress Tracking**: Real-time progress updates via WebSockets
+- **Error Handling**: Comprehensive error handling and retry mechanisms
+
+#### 🔄 Real-Time Communication
+
+- **WebSocket Updates**: Live updates for agent status, task progress, and events
+- **Entity-Scoped Subscriptions**: Subscribe to specific agents, models, or tasks
+- **Organization Broadcasting**: Events scoped to organization context
+- **Reconnection**: Automatic reconnection with exponential backoff
+
+#### 🔍 Model Integration
+
+- **Ollama Support**: Native integration with Ollama for local LLM inference
+- **OpenAI-Compatible**: Support for OpenAI-compatible APIs
+- **Custom Providers**: Extensible architecture for custom model providers
+- **Model Discovery**: Automatic model discovery and health checking
 
 ### Security & Access Control
+
+#### 🔐 Authentication & Authorization
 
 - **OIDC Authentication**: Keycloak integration with JWT tokens
 - **Entitlement-Based Authorization**: Fine-grained permissions (RBAC, ABAC, ReBAC)
 - **System Groups**: Admin, Developer, Operator, and Viewer roles
 - **Organization Scoping**: Multi-tenant support with organization-level isolation
 
+#### 📝 Audit & Compliance
+
+- **Comprehensive Logging**: Audit logging for all agent actions and system events
+- **Compliance Ready**: GDPR, SOC 2, and HIPAA-ready audit trails
+- **Query Interface**: Powerful query interface for audit logs
+- **Retention Policies**: Configurable log retention policies
+
 ### Developer Experience
+
+#### 🛠️ Developer Tools
 
 - **TypeScript First**: Full type safety across the stack
 - **Nx Monorepo**: Efficient builds with affected detection
-- **Comprehensive Testing**: Unit, integration, and E2E tests
-- **API Documentation**: OpenAPI/Swagger documentation
 - **Hot Reload**: Fast development with watch mode
+- **API Documentation**: OpenAPI/Swagger documentation
+
+#### 🧪 Testing & Quality
+
+- **Comprehensive Testing**: Unit, integration, and E2E tests
+- **Code Quality**: ESLint, Prettier, and Husky pre-commit hooks
+- **CI/CD**: Automated testing and deployment pipelines
+- **Coverage Reports**: Detailed test coverage reporting
 
 ---
 
-## Prerequisites
+## 🚦 Quick Start
+
+### Prerequisites
 
 - **Node.js**: 24.x or later
 - **npm**: 10.x or later
 - **MongoDB**: 7.0 or later
 - **Docker & Docker Compose**: For running services locally
 - **Ollama**: (Optional) For local LLM inference
-
----
-
-## Quick Start
 
 ### 1. Clone the Repository
 
@@ -101,7 +144,7 @@ Copy the example environment file and configure it:
 cp env.example .env
 ```
 
-Edit `.env` with your configuration (see [Configuration](#configuration) below).
+Edit `.env` with your configuration (see [Configuration](#-configuration) below).
 
 ### 4. Start Services with Docker Compose
 
@@ -140,7 +183,7 @@ npm run start:agent  # Desktop app (Tauri)
 
 ---
 
-## Configuration
+## ⚙️ Configuration
 
 ### Environment Variables
 
@@ -188,7 +231,7 @@ MongoDB is used for persistent storage. Default connection:
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ### System Components
 
@@ -232,7 +275,7 @@ ursly-agent/
 │   └── shared/          # Shared types & utilities
 ├── keycloak/            # Keycloak realm & themes
 ├── docker-compose.yml   # Docker services
-└── agents.md            # Detailed documentation
+└── README.md            # This file
 ```
 
 ### Domain Architecture
@@ -247,7 +290,7 @@ The platform follows Domain-Driven Design with bounded contexts:
 
 ---
 
-## Development
+## 🧪 Development
 
 ### Available Scripts
 
@@ -310,7 +353,7 @@ The project uses:
 
 ---
 
-## Production Deployment
+## 🚀 Production Deployment
 
 ### Docker Deployment
 
@@ -344,7 +387,7 @@ For production, ensure:
 
 ---
 
-## API Documentation
+## 📡 API Documentation
 
 ### REST API
 
@@ -393,7 +436,7 @@ curl -X POST \
 
 ---
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
 ### Common Issues
 
@@ -432,13 +475,13 @@ If ports are already in use:
 
 ### Getting Help
 
-- **Documentation**: See [agents.md](./agents.md) for detailed docs
+- **Documentation**: See detailed architecture docs in codebase
 - **Issues**: [GitHub Issues](https://github.com/stonyp90/Usrly-Agent/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/stonyp90/Usrly-Agent/discussions)
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions! Please see our contributing guidelines:
 
@@ -460,7 +503,7 @@ We welcome contributions! Please see our contributing guidelines:
 
 ---
 
-## Projects
+## 📊 Projects
 
 | Project              | Description                | Port  |
 | -------------------- | -------------------------- | ----- |
@@ -474,15 +517,15 @@ We welcome contributions! Please see our contributing guidelines:
 
 ---
 
-## Documentation
+## 📚 Documentation
 
-- **[Architecture Documentation](./agents.md)**: Comprehensive architecture and development guide
+- **[Architecture Documentation](./docs/architecture.md)**: Comprehensive architecture guide (coming soon)
 - **[API Documentation](http://localhost:3000/api/docs)**: OpenAPI/Swagger docs
 - **[Keycloak Setup](./keycloak/realms/README.md)**: Keycloak realm configuration
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the **GNU Affero General Public License v3.0** (AGPL-3.0).
 
@@ -502,7 +545,7 @@ See [LICENSE](./LICENSE) for details.
 
 ---
 
-## Support
+## 🆘 Support
 
 - **Website**: [ursly.io](https://ursly.io)
 - **GitHub**: [github.com/stonyp90/Usrly-Agent](https://github.com/stonyp90/Usrly-Agent)
@@ -511,15 +554,15 @@ See [LICENSE](./LICENSE) for details.
 
 ---
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 Inspired by and built with:
 
-- [Botpress](https://github.com/botpress/botpress) - Open-source hub for GPT/LLM Agents
-- [LangChain](https://github.com/langchain-ai/langchain) - Framework for LLM applications
-- [CrewAI](https://github.com/joaomdmoura/crewAI) - Framework for orchestrating AI agents
-- [Dify](https://github.com/langgenius/dify) - LLM app development platform
-- [Flowise](https://github.com/FlowiseAI/Flowise) - Drag & drop UI for LLM flows
+- **[Botpress](https://github.com/botpress/botpress)** - Open-source hub for GPT/LLM Agents
+- **[LangChain](https://github.com/langchain-ai/langchain)** - Framework for LLM applications
+- **[CrewAI](https://github.com/joaomdmoura/crewAI)** - Framework for orchestrating AI agents
+- **[Dify](https://github.com/langgenius/dify)** - LLM app development platform
+- **[Flowise](https://github.com/FlowiseAI/Flowise)** - Drag & drop UI for LLM flows
 
 ---
 
@@ -527,6 +570,6 @@ Inspired by and built with:
 
 **Built with ❤️ by [Anthony Paquet](https://www.linkedin.com/in/anthony-paquet-94a31085/)**
 
-[⭐ Star us on GitHub](https://github.com/stonyp90/Usrly-Agent) • [📖 Read the Docs](./agents.md) • [🐛 Report Issues](https://github.com/stonyp90/Usrly-Agent/issues)
+[⭐ Star us on GitHub](https://github.com/stonyp90/Usrly-Agent) · [📖 Read the Docs](./docs) · [🐛 Report Issues](https://github.com/stonyp90/Usrly-Agent/issues)
 
 </div>
