@@ -148,6 +148,7 @@
     "@swc/helpers": "^0.5.3",
     "@swc/jest": "^0.2.39",
     "@testcontainers/mongodb": "^11.10.0",
+    "@testcontainers/postgresql": "^11.10.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^14.1.2",
     "@types/jest": "^29.5.11",

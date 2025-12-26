@@ -55,7 +55,7 @@
         "http://127.0.0.1:3000/*",
         "http://127.0.0.1:4200/*",
         "http://127.0.0.1:1420/*",
-        "https://app.ursly.io/*",
+        "https://agents.ursly.io/*",
         "https://api.ursly.io/*",
         "https://auth.ursly.io/*",
         "https://ursly.io/*",
@@ -72,7 +72,7 @@
         "http://127.0.0.1:3000",
         "http://127.0.0.1:4200",
         "http://127.0.0.1:1420",
-        "https://app.ursly.io",
+        "https://agents.ursly.io",
         "https://api.ursly.io",
         "https://auth.ursly.io",
         "https://ursly.io",
@@ -81,7 +81,7 @@
       ],
       "attributes": {
         "pkce.code.challenge.method": "S256",
-        "post.logout.redirect.uris": "tauri://localhost/*##http://tauri.localhost/*##http://localhost:4200/*##http://localhost:1420/*##https://app.ursly.io/*"
+        "post.logout.redirect.uris": "tauri://localhost/*##http://tauri.localhost/*##http://localhost:4200/*##http://localhost:1420/*##https://agents.ursly.io/*"
       }
     },
     {
@@ -103,7 +103,7 @@
         "http://127.0.0.1/*",
         "http://127.0.0.1:1420/*",
         "http://127.0.0.1:4200/*",
-        "https://app.ursly.io/*",
+        "https://agents.ursly.io/*",
         "https://api.ursly.io/*"
       ],
       "webOrigins": [
@@ -115,13 +115,13 @@
         "http://127.0.0.1",
         "http://127.0.0.1:1420",
         "http://127.0.0.1:4200",
-        "https://app.ursly.io",
+        "https://agents.ursly.io",
         "https://api.ursly.io",
         "+"
       ],
       "attributes": {
         "pkce.code.challenge.method": "S256",
-        "post.logout.redirect.uris": "tauri://localhost/*##http://localhost:1420/*##https://app.ursly.io/*"
+        "post.logout.redirect.uris": "tauri://localhost/*##http://localhost:1420/*##https://agents.ursly.io/*"
       }
     },
     {
