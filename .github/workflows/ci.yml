@@ -90,7 +90,7 @@ jobs:
         run: npm test -- --passWithNoTests
 
   # ==========================================================================
-  # Build Agent Platform (Linux)
+  # Build Agent Platform (All Platforms)
   # ==========================================================================
   build-agent-platform:
     name: Build Agent Platform
@@ -112,8 +112,8 @@ jobs:
       - name: Build agent platform projects
         run: npx nx run-many --target=build --projects=web,api,grpc,agent-core,audit-logger,shared-access-control-access-control,shared-types --parallel=3
 
-      - name: Build agent-desktop frontend (optional - Tauri requires Rust)
-        run: npx nx run agent-desktop:build-frontend || echo "Frontend build skipped - may require type fixes or Rust toolchain"
+      - name: Build agent-desktop frontend
+        run: npx nx run agent-desktop:build-frontend
         continue-on-error: true
 
       - name: Upload build artifacts
@@ -121,5 +121,79 @@ jobs:
         with:
           name: dist
           path: dist/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  # ==========================================================================
+  # Build Agent Desktop (All Platforms)
+  # ==========================================================================
+  build-agent-desktop:
+    name: Build Agent Desktop (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: macOS
+            os: macos-latest
+            rust_target: aarch64-apple-darwin,x86_64-apple-darwin
+          - platform: Windows
+            os: windows-latest
+            rust_target: x86_64-pc-windows-msvc
+          - platform: Linux
+            os: ubuntu-latest
+            rust_target: x86_64-unknown-linux-gnu
+
+    runs-on: ${{ matrix.os }}
+    needs: build-agent-platform
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust_target }}
+
+      - name: Install Linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libjavascriptcoregtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libsoup-3.0-dev
+
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/agent-desktop/src-tauri -> target
+          key: agent-ci-${{ matrix.os }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build agent platform projects (for frontend)
+        run: npx nx run-many --target=build --projects=web --parallel=1
+
+      - name: Build agent-desktop frontend
+        run: npx nx run agent-desktop:build-frontend
+        continue-on-error: true
+
+      - name: Build Tauri app
+        working-directory: apps/agent-desktop
+        run: npm run tauri:build
+        continue-on-error: true
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-desktop-${{ matrix.platform }}
+          path: |
+            apps/agent-desktop/src-tauri/target/release/bundle/**/*
+            apps/agent-desktop/dist/**
           retention-days: 7
           if-no-files-found: ignore
