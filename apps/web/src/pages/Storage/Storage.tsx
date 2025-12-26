@@ -624,6 +624,7 @@ export function StoragePage() {
     handleCloseContextMenu();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _handleOpenTierMigration = () => {
     if (selectedFiles.size > 0) {
       setTierMigrationModal(true);
@@ -631,6 +632,7 @@ export function StoragePage() {
     handleCloseContextMenu();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _handleQuickTierChange = async (targetTier: TierType) => {
     if (!selectedSource || selectedFiles.size === 0) return;
 
@@ -838,6 +840,7 @@ export function StoragePage() {
   /**
    * Get available target tiers based on current tier
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _getAvailableTargetTiers = (currentTier: StorageTier): TierConfig[] => {
     // Can move to any tier except current
     return TIER_CONFIGS.filter((t) => t.id !== currentTier);
@@ -1249,7 +1252,9 @@ export function StoragePage() {
           <>
             <MenuItem
               onClick={() => {
-                handleFileDoubleClick(contextMenu.file!);
+                if (contextMenu.file) {
+                  handleFileDoubleClick(contextMenu.file);
+                }
                 handleCloseContextMenu();
               }}
             >
@@ -1285,14 +1290,20 @@ export function StoragePage() {
           <>
             <MenuItem
               onClick={() => {
-                setRenameName(contextMenu.file!.name);
-                setRenameDialog({ open: true, file: contextMenu.file });
+                if (contextMenu.file) {
+                  setRenameName(contextMenu.file.name);
+                  setRenameDialog({ open: true, file: contextMenu.file });
+                }
                 handleCloseContextMenu();
               }}
             >
               <Edit sx={{ mr: 1.5, fontSize: 18 }} /> Rename
             </MenuItem>
-            <MenuItem onClick={() => handleToggleFavorite(contextMenu.file!)}>
+            <MenuItem onClick={() => {
+              if (contextMenu.file) {
+                handleToggleFavorite(contextMenu.file);
+              }
+            }}>
               {contextMenu.file.isFavorite ? (
                 <>
                   <StarBorder sx={{ mr: 1.5, fontSize: 18 }} /> Remove from
@@ -1318,7 +1329,11 @@ export function StoragePage() {
               <>
                 <Divider />
                 <MenuItem
-                  onClick={() => openHydrationDialog([contextMenu.file!])}
+                  onClick={() => {
+                    if (contextMenu.file) {
+                      openHydrationDialog([contextMenu.file]);
+                    }
+                  }}
                 >
                   <SwapVert
                     sx={{ mr: 1.5, fontSize: 18, color: 'var(--cyber-purple)' }}
@@ -1328,8 +1343,10 @@ export function StoragePage() {
                 {contextMenu.file.tierStatus !== 'hot' && (
                   <MenuItem
                     onClick={() => {
-                      setSelectedTargetTier('hot');
-                      openHydrationDialog([contextMenu.file!]);
+                      if (contextMenu.file) {
+                        setSelectedTargetTier('hot');
+                        openHydrationDialog([contextMenu.file]);
+                      }
                     }}
                   >
                     <Whatshot
@@ -1345,8 +1362,10 @@ export function StoragePage() {
                 {contextMenu.file.tierStatus === 'hot' && (
                   <MenuItem
                     onClick={() => {
-                      setSelectedTargetTier('cold');
-                      openHydrationDialog([contextMenu.file!]);
+                      if (contextMenu.file) {
+                        setSelectedTargetTier('cold');
+                        openHydrationDialog([contextMenu.file]);
+                      }
                     }}
                   >
                     <AcUnit

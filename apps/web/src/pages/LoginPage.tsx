@@ -245,7 +245,7 @@ export function LoginPage() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Agent Orchestrator
+              Ursly Agent
             </Typography>
 
             <Typography

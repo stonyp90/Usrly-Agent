@@ -65,7 +65,7 @@ export function Header() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
   
-  const title = pageTitles[location.pathname] || 'Agent Orchestrator';
+  const title = pageTitles[location.pathname] || 'Ursly Agent';
 
   const handleLogout = () => {
     auth.signoutRedirect();
