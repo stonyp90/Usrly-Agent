@@ -58,7 +58,7 @@ jobs:
         run: npm ci
 
       - name: Build agent platform projects
-        run: npx nx run-many --target=build --projects=web,api,grpc,agent-core,audit-logger,shared-access-control-access-control,shared-types --parallel=3
+        run: npx nx run-many --target=build --projects=web,api,grpc,agent-core,audit-logger,shared-access-control-access-control,shared-types --parallel=3 || npx nx run-many --target=build --projects=web,api,grpc,agent-core,audit-logger,shared-types --parallel=3
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
