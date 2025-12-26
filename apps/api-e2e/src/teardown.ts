@@ -6,12 +6,20 @@ interface GlobalThis {
   __MONGO_CONTAINER__: StartedMongoDBContainer;
   __POSTGRES_CONTAINER__: StartedPostgreSqlContainer;
   __KEYCLOAK_CONTAINER__: StartedTestContainer;
+  __API_CONTAINER__?: StartedTestContainer;
 }
 
 declare const globalThis: GlobalThis;
 
 export default async function globalTeardown() {
   console.log("\n🧹 Cleaning up test containers...\n");
+
+  // Stop API container if it was started
+  if (globalThis.__API_CONTAINER__) {
+    console.log("📦 Stopping API container...");
+    await globalThis.__API_CONTAINER__.stop();
+    console.log("✅ API container stopped");
+  }
 
   // Stop Keycloak container
   if (globalThis.__KEYCLOAK_CONTAINER__) {

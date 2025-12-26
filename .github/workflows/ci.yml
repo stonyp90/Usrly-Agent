@@ -34,7 +34,7 @@ jobs:
       - name: Run linting
         run: npm run lint
 
-      - name: Run tests
+      - name: Run unit tests
         run: npm test -- --passWithNoTests
 
   # ==========================================================================
@@ -60,7 +60,7 @@ jobs:
       - name: Run linting
         run: npm run lint
 
-      - name: Run tests
+      - name: Run unit tests
         run: npm test -- --passWithNoTests
 
   # ==========================================================================
@@ -86,8 +86,89 @@ jobs:
       - name: Run linting
         run: npm run lint
 
-      - name: Run tests
+      - name: Run unit tests
         run: npm test -- --passWithNoTests
+
+  # ==========================================================================
+  # E2E Tests with Testcontainers
+  # ==========================================================================
+  e2e-tests:
+    name: E2E Tests (Testcontainers)
+    runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:dind
+        options: >-
+          --privileged
+          --health-cmd "docker info"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build API
+        run: npx nx build api --prod
+
+      - name: Build API Docker image
+        run: |
+          docker build -t ursly-agent-api:test -f apps/api/Dockerfile .
+
+      - name: Start API container
+        run: |
+          docker run -d \
+            --name api-test \
+            --network host \
+            -e NODE_ENV=test \
+            -e MONGODB_URI=mongodb://localhost:27017/agent-orchestrator \
+            -e KEYCLOAK_URL=http://localhost:8080 \
+            -e KEYCLOAK_REALM=agent-orchestrator \
+            -e KEYCLOAK_CLIENT_ID=agent-api \
+            -e KEYCLOAK_CLIENT_SECRET=change-me \
+            ursly-agent-api:test
+        env:
+          DOCKER_HOST: unix:///var/run/docker.sock
+
+      - name: Wait for API to be ready
+        run: |
+          timeout=60
+          elapsed=0
+          while ! curl -f http://localhost:3000/health > /dev/null 2>&1; do
+            if [ $elapsed -ge $timeout ]; then
+              echo "API failed to start within $timeout seconds"
+              docker logs api-test
+              exit 1
+            fi
+            echo "Waiting for API... ($elapsed/$timeout seconds)"
+            sleep 2
+            elapsed=$((elapsed + 2))
+          done
+          echo "API is ready!"
+
+      - name: Run E2E tests
+        run: npm run e2e:api
+        env:
+          API_URL: http://localhost:3000
+          DOCKER_HOST: unix:///var/run/docker.sock
+
+      - name: Stop API container
+        if: always()
+        run: docker stop api-test || true
+
+      - name: Remove API container
+        if: always()
+        run: docker rm api-test || true
 
   # ==========================================================================
   # Build Agent Platform (All Platforms)
@@ -95,6 +176,7 @@ jobs:
   build-agent-platform:
     name: Build Agent Platform
     runs-on: ubuntu-latest
+    needs: [test-linux, e2e-tests]
     steps:
       - uses: actions/checkout@v4
         with:

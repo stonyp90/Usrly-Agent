@@ -7,11 +7,13 @@ import {
   StartedPostgreSqlContainer,
 } from "@testcontainers/postgresql";
 import { GenericContainer, StartedTestContainer } from "testcontainers";
+import { waitForService } from "./test-utils";
 
 interface GlobalThis {
   __MONGO_CONTAINER__: StartedMongoDBContainer;
   __POSTGRES_CONTAINER__: StartedPostgreSqlContainer;
   __KEYCLOAK_CONTAINER__: StartedTestContainer;
+  __API_CONTAINER__?: StartedTestContainer;
   __API_URL__: string;
   __KEYCLOAK_URL__: string;
 }
@@ -122,23 +124,20 @@ export default async function globalSetup() {
   process.env.KEYCLOAK_CLIENT_ID = "agent-api";
   process.env.KEYCLOAK_CLIENT_SECRET = "change-me";
 
-  // Check if API is running locally
+  // Check if API is running (local or container)
   const apiUrl = process.env.API_URL || "http://localhost:3000";
   globalThis.__API_URL__ = apiUrl;
   process.env.API_URL = apiUrl;
 
-  try {
-    const response = await fetch(`${apiUrl}/health`, {
-      signal: AbortSignal.timeout(3000),
-    });
-    if (response.ok) {
-      console.log(`✅ API available at: ${apiUrl}`);
-    } else {
-      console.log(`⚠️  API returned status ${response.status}`);
-    }
-  } catch {
-    console.log(`\n⚠️  API not running at ${apiUrl}`);
-    console.log("   Start the API with: npm run start:api");
+  // Wait for API to be ready
+  console.log(`⏳ Waiting for API to be ready at ${apiUrl}...`);
+  const apiReady = await waitForService(`${apiUrl}/health`, 30, 2000);
+  if (apiReady) {
+    console.log(`✅ API is ready at: ${apiUrl}`);
+  } else {
+    console.log(`⚠️  API not ready at ${apiUrl}`);
+    console.log("   In CI: API container should be started by workflow");
+    console.log("   Locally: Start API with: npm run start:api");
     console.log("   Or set API_URL environment variable\n");
   }
 
