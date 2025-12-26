@@ -43,7 +43,7 @@
     "build:grpc": "nx build grpc --configuration=production",
     "build:web": "nx build web --configuration=production",
     "build:agent": "nx build agent-desktop",
-    "test": "nx run-many --target=test --all --passWithNoTests",
+    "test": "nx run-many --target=test --all",
     "test:watch": "nx run-many --target=test --all --watch",
     "test:coverage": "nx run-many --target=test --all --coverage",
     "lint": "nx run-many --target=lint --all",

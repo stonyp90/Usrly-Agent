@@ -19,7 +19,14 @@
         "command": "cd apps/agent-desktop && npx tauri build",
         "cwd": "{workspaceRoot}"
       },
-      "dependsOn": ["web:build"]
+      "dependsOn": ["build-frontend", "web:build"]
+    },
+    "build-frontend": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/agent-desktop/dist"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
