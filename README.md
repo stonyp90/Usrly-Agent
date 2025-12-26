@@ -12,20 +12,49 @@
 
 <br />
 
+<!-- CI/CD & Build Status -->
+
 [![CI](https://github.com/stonyp90/Usrly-Agent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/stonyp90/Usrly-Agent/actions/workflows/ci.yml)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/actions)
 [![Code Quality](https://img.shields.io/badge/code%20quality-enterprise--grade-success?style=flat-square)](https://github.com/stonyp90/Usrly-Agent)
-[![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/graphs/contributors)
+[![Lint](https://img.shields.io/badge/lint-passing-brightgreen?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/actions)
+
+<!-- Platform Support -->
+
+[![macOS](https://img.shields.io/badge/platform-macOS-lightgrey?style=flat-square&logo=apple)](https://github.com/stonyp90/Usrly-Agent/actions)
+[![Windows](https://img.shields.io/badge/platform-Windows-blue?style=flat-square&logo=windows)](https://github.com/stonyp90/Usrly-Agent/actions)
+[![Linux](https://img.shields.io/badge/platform-Linux-orange?style=flat-square&logo=linux)](https://github.com/stonyp90/Usrly-Agent/actions)
+
+<!-- Project Stats -->
+
 [![GitHub Stars](https://img.shields.io/github/stars/stonyp90/Usrly-Agent?style=flat-square&logo=github)](https://github.com/stonyp90/Usrly-Agent/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/stonyp90/Usrly-Agent?style=flat-square&logo=github)](https://github.com/stonyp90/Usrly-Agent/network/members)
 [![GitHub Issues](https://img.shields.io/github/issues/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/issues)
 [![GitHub PRs](https://img.shields.io/github/issues-pr/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/pulls)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-24.x-green?style=flat-square&logo=node.js)](https://nodejs.org/)
-[![NestJS](https://img.shields.io/badge/NestJS-10-E0234E?style=flat-square&logo=nestjs)](https://nestjs.com/)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248?style=flat-square&logo=mongodb)](https://www.mongodb.com/)
-[![Keycloak](https://img.shields.io/badge/Keycloak-23.0-blue?style=flat-square)](https://www.keycloak.org/)
+[![Contributors](https://img.shields.io/github/contributors/stonyp90/Usrly-Agent?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/stonyp90/Usrly-Agent/main?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/commits/main)
+
+<!-- License & Legal -->
+
+[![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](LICENSE)
+[![AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-green?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
+
+<!-- Tech Stack -->
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-24.x-green?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![NestJS](https://img.shields.io/badge/NestJS-10-E0234E?style=flat-square&logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Keycloak](https://img.shields.io/badge/Keycloak-23.0-blue?style=flat-square&logo=keycloak&logoColor=white)](https://www.keycloak.org/)
+[![gRPC](https://img.shields.io/badge/gRPC-1.9-blue?style=flat-square&logo=grpc)](https://grpc.io/)
+[![Socket.io](https://img.shields.io/badge/Socket.io-4.6-black?style=flat-square&logo=socket.io)](https://socket.io/)
+
+<!-- Additional Info -->
+
+[![Website](https://img.shields.io/badge/Website-ursly.io-00d4ff?style=flat-square)](https://ursly.io)
+[![Discussions](https://img.shields.io/badge/Discussions-GitHub-blue?style=flat-square&logo=github)](https://github.com/stonyp90/Usrly-Agent/discussions)
+[![Security](https://img.shields.io/badge/Security-Policy-blue?style=flat-square)](SECURITY.md)
 
 <br />
 
