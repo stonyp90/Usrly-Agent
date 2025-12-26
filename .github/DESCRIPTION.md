@@ -3,7 +3,7 @@
 Use this description for the GitHub repository settings:
 
 ```
-🚀 Enterprise-grade AI agent orchestration platform. Build, deploy, and manage AI agents at scale with Keycloak OIDC, multi-model support (Ollama), real-time WebSockets, and comprehensive monitoring. Built with NestJS, React, TypeScript, and clean architecture principles.
+🚀 Enterprise-grade AI agent orchestration platform. Build, deploy, and manage AI agents at scale with Keycloak OIDC, multi-model support (Ollama), real-time WebSockets, and comprehensive monitoring. Built with NestJS, React, TypeScript.
 ```
 
 **Character count**: 199 characters (GitHub limit: 160)
