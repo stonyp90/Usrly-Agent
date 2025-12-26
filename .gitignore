@@ -1,0 +1,183 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# ============================================================================
+# Compiled Output / Build Artifacts
+# ============================================================================
+dist/
+tmp/
+/out-tsc
+*.js.map
+build/
+*.tsbuildinfo
+.next/
+.cache/
+
+# ============================================================================
+# Dependencies
+# ============================================================================
+node_modules/
+.pnp/
+.pnp.js
+
+# ============================================================================
+# Environment & Secrets
+# ============================================================================
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*.crt
+!*.example.pem
+!*.example.key
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IDE - Cursor
+.cursor/*
+!.cursor/rules
+
+# ============================================================================
+# Nx / Monorepo
+# ============================================================================
+.nx/cache
+.nx/workspace-data
+.nx/installation
+
+# ============================================================================
+# Tauri / Rust
+# ============================================================================
+**/src-tauri/target/
+**/src-tauri/gen/
+**/*.rs.bk
+**/Cargo.lock
+!apps/*/src-tauri/Cargo.lock
+
+# ============================================================================
+# Desktop Builds / Installers
+# ============================================================================
+desktop-builds/
+*.dmg
+*.msi
+*.exe
+*.deb
+*.rpm
+*.AppImage
+*.app
+*.pkg
+
+# ============================================================================
+# Terraform / Infrastructure
+# ============================================================================
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ============================================================================
+# Logs
+# ============================================================================
+logs/
+*.log
+pids/
+*.pid
+*.seed
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ============================================================================
+# Test Coverage
+# ============================================================================
+coverage/
+*.lcov
+.nyc_output
+test-results/
+playwright-report/
+
+# ============================================================================
+# System Files
+# ============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================================================
+# Misc
+# ============================================================================
+/.sass-cache
+/connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+
+# ============================================================================
+# Cache & Temp Files
+# ============================================================================
+*.cache
+.eslintcache
+.stylelintcache
+.prettiercache
+.parcel-cache
+
+# ============================================================================
+# VFS / Media Processing Cache
+# ============================================================================
+.vfs-cache/
+.thumbnail-cache/
+.hls-output/
+*.m3u8
+*.ts
+!libs/**/*.ts
+!apps/**/*.ts
+!integrations/**/*.ts
+
+# ============================================================================
+# Secrets (additional patterns)
+# ============================================================================
+secrets/
+credentials/
+*.secret
+*.secrets
+service-account*.json
+!*example*.json
+
+# Build artifacts
+.nx/cache/**/*.dmg
+.nx/cache/**/*.msi
+.nx/cache/**/*.AppImage
+apps/*/src-tauri/target/release/bundle/**

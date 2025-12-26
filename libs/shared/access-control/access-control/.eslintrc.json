@@ -1,0 +1,15 @@
+{
+  "extends": ["../../../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "libs/shared/access-control/access-control/tsconfig.*?.json"
+        ]
+      },
+      "rules": {}
+    }
+  ]
+}
