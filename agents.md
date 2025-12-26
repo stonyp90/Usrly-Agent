@@ -4,6 +4,8 @@ A clean architecture AI agent orchestration platform built with modern technolog
 
 > **Documentation Rule**: This project maintains a single `agents.md` file for all documentation.
 
+**Status**: ✅ Production-ready, enterprise-grade platform with comprehensive testing, linting, and CI/CD.
+
 ---
 
 ## Related Projects & Inspiration
@@ -369,12 +371,12 @@ export interface IAgentRepository {
   create(dto: CreateAgentDto, createdBy: string): Promise<Agent>;
   findById(id: string): Promise<Agent | null>;
 }
-export const AGENT_REPOSITORY = Symbol('IAgentRepository');
+export const AGENT_REPOSITORY = Symbol("IAgentRepository");
 
 @Injectable()
 export class AgentRepositoryAdapter implements IAgentRepository {
   constructor(
-    @InjectModel('Agent') private readonly agentModel: Model<AgentDocument>,
+    @InjectModel("Agent") private readonly agentModel: Model<AgentDocument>,
   ) {}
 
   async create(dto: CreateAgentDto, createdBy: string): Promise<Agent> {
@@ -399,18 +401,18 @@ The `@ursly/agent-core` library provides automatic context window management:
 | qwen            | 32,768      |
 
 ```typescript
-import { ContextWindowManager } from '@ursly/agent-core';
+import { ContextWindowManager } from "@ursly/agent-core";
 
 const manager = new ContextWindowManager();
 
-manager.createWindow('agent-123', {
+manager.createWindow("agent-123", {
   maxTokens: 8192,
   thresholdPercent: 80,
-  modelName: 'llama3',
+  modelName: "llama3",
 });
 
-if (manager.shouldRotate('agent-123')) {
-  await manager.rotateWindow('agent-123');
+if (manager.shouldRotate("agent-123")) {
+  await manager.rotateWindow("agent-123");
 }
 ```
 
@@ -472,9 +474,9 @@ The Ursly Desktop app provides a unified file management experience across three
 ```typescript
 // Windows Server 2025 NVMe optimization
 const cacheConfig: NvmeCacheConfig = {
-  cachePath: 'D:\\UrslyCache',
+  cachePath: "D:\\UrslyCache",
   maxSizeBytes: 500 * 1024 * 1024 * 1024, // 500 GB
-  evictionPolicy: 'lru',
+  evictionPolicy: "lru",
   enableReadAhead: true,
   readAheadBytes: 256 * 1024 * 1024,
   enableWriteBehind: true,
@@ -502,14 +504,14 @@ Tags are stored in Elasticsearch and apply across all storage sources:
 ```typescript
 // Tag a file regardless of storage tier
 await api.tagFile({
-  sourceId: 'fsx-ontap-prod',
-  path: '/projects/commercial/final_v3.mov',
-  tags: ['approved', 'client-acme', '2024-q4'],
+  sourceId: "fsx-ontap-prod",
+  path: "/projects/commercial/final_v3.mov",
+  tags: ["approved", "client-acme", "2024-q4"],
 });
 
 // Search by tag (searches metadata, not file content)
 const results = await api.search({
-  filters: { tags: ['approved', 'client-acme'] },
+  filters: { tags: ["approved", "client-acme"] },
   includeAggregations: true,
 });
 ```

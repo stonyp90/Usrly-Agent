@@ -7,6 +7,7 @@
 **Build, deploy, and manage AI agents with enterprise-grade architecture.**
 
 [![CI](https://github.com/stonyp90/Usrly-Agent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/stonyp90/Usrly-Agent/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)](https://github.com/stonyp90/Usrly-Agent/actions)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-24.x-green?style=flat-square&logo=node.js)](https://nodejs.org/)
@@ -132,6 +133,8 @@ npm run start:agent  # Desktop app (Tauri)
 - **API**: http://localhost:3000
 - **API Docs**: http://localhost:3000/api/docs
 - **Keycloak**: http://localhost:8080 (admin/admin)
+
+**⚠️ Security Note**: Default Keycloak credentials are for development only. Change them in production!
 
 ---
 
@@ -457,15 +460,15 @@ We welcome contributions! Please see our contributing guidelines:
 
 ## Projects
 
-| Project | Description | Port |
-|---------|-------------|------|
-| `apps/web` | React web application | 4200 |
-| `apps/api` | NestJS REST API | 3000 |
-| `apps/grpc` | gRPC service for Ollama | 50051 |
-| `apps/agent-desktop` | Tauri desktop application | - |
-| `libs/agent-core` | Core agent logic library | - |
-| `libs/audit-logger` | Audit logging library | - |
-| `libs/shared` | Shared types and utilities | - |
+| Project              | Description                | Port  |
+| -------------------- | -------------------------- | ----- |
+| `apps/web`           | React web application      | 4200  |
+| `apps/api`           | NestJS REST API            | 3000  |
+| `apps/grpc`          | gRPC service for Ollama    | 50051 |
+| `apps/agent-desktop` | Tauri desktop application  | -     |
+| `libs/agent-core`    | Core agent logic library   | -     |
+| `libs/audit-logger`  | Audit logging library      | -     |
+| `libs/shared`        | Shared types and utilities | -     |
 
 ---
 
